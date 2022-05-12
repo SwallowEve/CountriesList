@@ -6,7 +6,8 @@ function Pagination({total, perPage, pageNow}) {
     const [pages, setPages] = useState([]);
     const [arrLeft, setArrLeft] = useState(0);
     const [arrRight, setArrRight] = useState(0);
-      
+ 
+    //declaring number of pages
     useEffect(() => {
         const p = [];
         const count = Math.ceil(total /perPage);
@@ -17,7 +18,7 @@ function Pagination({total, perPage, pageNow}) {
     
     }, [total, perPage]);   
         
-
+//showing arrows left and right regarding to chosen page
     useEffect(() => {     
         const  pn = parseInt(pageNow);
         if (pn  === 1) setArrLeft(0);

@@ -36,7 +36,7 @@ function App() {
   //     localStorage.setItem('countriesList', []);
   //   }
   //   l = JSON.parse(l)
-  //   dispatchCountries(getCountries(l));
+  //   dispatchCountries(getCountries(l);
   //     }, []);
 
 //setting localStorage on state change
