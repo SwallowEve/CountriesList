@@ -1,5 +1,5 @@
 import { useReducer, useEffect, useState, useRef } from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import axios from "axios";
 import "./App.css";
 import { getCountries, sortAsc, sortDesc} from "./Actions/countries";
@@ -13,7 +13,6 @@ function App() {
   const masterStore = useRef([]);
   const [filterArea, setFilterArea] = useState('0');
   const [filterRegion, setFilterRegion] = useState('0');
-
 
   
 //getting data from API
@@ -74,7 +73,7 @@ function App() {
     let clear2 = document.querySelector("#regionId");
     clear2.selectedIndex = 0;
   };
-
+  
   return (
     <BrowserRouter>
       <div className="App">
@@ -94,12 +93,18 @@ function App() {
         </header>
 
         <div className="App-body">
-          <Routes>
+           <Routes>
+            
+                     
             <Route
               path={"/:pageNow"}
               element={<CountriesList countries={countries} dispatchCountries={dispatchCountries} countriesPerPage={COUNTRIES_PER_PAGE}></CountriesList>}>
               </Route>
+              <Route path="/" element={<Navigate replace to="/1"></Navigate>}>
+          
+        </Route>
           </Routes>
+          
         </div>
       </div>
     </BrowserRouter>
